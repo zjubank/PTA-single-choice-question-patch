@@ -1,0 +1,50 @@
+下午30-3
+C1
+About inner class, which statement below is NOT correct? 
+Inner classes defined inside a function can access any local variables in that function.
+Inner class cannot be defined as private.
+下午8-3
+C5
+List&lt;Double&gt; ls = new ArrayList&lt;Double&gt;();
+It does not compile
+It compiles but exception raises at line 3
+下午6-1
+B3
+System.out.println(s+v+a[0]);
+test 1010
+test  1010
+下午5-1
+B7
+System.out.print("mian with "+s);
+main main with wow
+main mian with wow
+上午4-3
+C2
+System.out.println(Math.floor(-2.1));
+-3.0
+-3
+下午19-3
+C0
+Compile fails because of line 4.
+Compile fails because of line 2.
+Compile fails because of line 4.
+下午14-1
+C1
+Which one below is NOT a Java keyword?
+extend
+null
+下午1-1
+C1
+Which of these method can be used to make the main thread to be executed last among all the threads?
+join()
+join()
+上午10-1
+C0
+It compiles, but only two element left in s
+--
+It compiles, but only two element left in s
+下午4-1
+C2
+Math.round(2.1)
+Compile error
+Run-time exception
