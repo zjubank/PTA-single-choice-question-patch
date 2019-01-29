@@ -4,6 +4,7 @@ import os
 import os.path
 import fileinput
 
+combineoutput = ""
 
 def main():
     print("Input root directory: ")
@@ -12,7 +13,11 @@ def main():
     print("Input problem file name with path: ")
     # 完整文件名
     problempath = str(input())
-
+    # 整合输出
+    print("Output all data to ONE file?(Y/N)")
+    global combineoutput
+    combineoutput = str(input()).upper()
+    
     problemlist = getproblem(problempath)
     print(problemlist)
     comparefile(problemlist, rootdir)
@@ -162,18 +167,25 @@ def readdir(rootdir, problemlist):
                              stulist.append([stuid,stuname,stuproblemid,stuproblem,stuanswer,problemanswer,problemanswertodo])
                         # 关闭文件
                         file.close()
-
-        # 输出这一题的结果
+        # 拆分成每题一个文件输出
+        if(combineoutput=="N"):
+            writeresult(rootdir,stulist)
+            # 清空list
+            stulist.clear()
+    # 所有题目结果一起输出
+    if(combineoutput=="Y"):
         writeresult(rootdir, stulist)
-        # 清空list
         stulist.clear()
     return 
 
 def writeresult(rootdir,stulist):
-    stutmp = stulist[0]
-    answernum = stutmp[2]
-    
-    resultpath = rootdir+"\\"+str(answernum)+".csv" # win路径分隔符
+    if(combineoutput == "N"):
+        stutmp = stulist[0]
+        answernum = stutmp[2]
+        
+        resultpath = rootdir+"\\"+str(answernum)+".csv" # win路径分隔符
+    else:
+        resultpath = rootdir+"\\result.csv" # win路径分隔符
     result = open(resultpath, 'w')
 
     orianswernum = 0
